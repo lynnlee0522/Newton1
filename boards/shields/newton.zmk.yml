@@ -1,0 +1,19 @@
+file_format: "1"
+id: newton1
+name: Newton1
+type: shield
+url: https://github.com/lynnlee0522/Newton1
+requires:
+  - pro_micro
+exposes:
+  - i2c_oled
+features:
+  - keys
+  - display
+  - encoder
+  - underglow
+  - studio
+  - pointer
+siblings:
+  - corne_left
+  - corne_right
