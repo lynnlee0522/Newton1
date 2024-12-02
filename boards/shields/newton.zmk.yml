@@ -15,5 +15,5 @@ features:
   - studio
   - pointer
 siblings:
-  - corne_left
-  - corne_right
+  - newton_left
+  - newton_right
