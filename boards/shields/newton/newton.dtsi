@@ -6,10 +6,9 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <layouts/cuddlykeyboards/ferris.dtsi>
-#include <position_map.dtsi>
 
 &cuddlykeyboards_ferris_layout {
-    transform = <&default_transform>;
+	transform = <&default_transform>;
 };
 
 
