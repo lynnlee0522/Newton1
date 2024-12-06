@@ -5,7 +5,7 @@ manifest:
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
     - name: cirque-input-module
-      url-base: https://github.com/petejohanson/cirque-input-module
+      url-base: https://github.com/petejohanson
 
   projects:
     - name: zmk
