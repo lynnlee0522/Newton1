@@ -47,6 +47,7 @@
 			&kp ESC   &kp ENTER   &kp LEFT   &lt 2 TAB   &kp ENTER     &kp SPACE  &lt 1 BSPC
 			//                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
 			>;
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 		
 		right_layer {
@@ -64,6 +65,7 @@
 			&trans     &kp ESC        &trans     &trans
 			//                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
 			>;
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 		
 		left_layer {
@@ -81,6 +83,7 @@
 			&trans     &trans         &trans     &trans
 			//                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
 			>;
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 		
 		tri_layer {
@@ -98,6 +101,7 @@
 			&trans     &trans         &trans     &trans
 			//                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
 			>;
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 	};
 };
