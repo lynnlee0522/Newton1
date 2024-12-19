@@ -4,6 +4,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/rgb.h>
 
 // Home row mods macro
 #define HRML(k1,k2,k3,k4) &ht LSHFT k1  &ht LALT k2  &ht LCTRL k3  &ht LGUI k4
@@ -20,6 +21,13 @@
 			require-prior-idle-ms = <100>;
 			bindings = <&kp>, <&kp>;
 		};
+		
+		// rgb_encoder: rgb_encoder {
+        //     compatible = "zmk,behavior-sensor-rotate";
+        //     #sensor-binding-cells = <0>;
+        //     bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
+        // };
+	
 	};
 	
 	conditional_layers {
@@ -29,28 +37,28 @@
 			then-layer = <3>;
 		};
 	};
-	
+
 	keymap {
 		compatible = "zmk,keymap";
 		default_layer {
 			bindings = <
 			//╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
 			//│  Q       │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │  P       │
-			&kp Q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
+			&kp Y      &kp U	     &kp I      &kp O    &kp P      &kp Y      &kp U	     &kp I      &kp O    &kp P      
 			//├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
 			//│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │ ' "      │
-			HRML(A,        S,         D,         F)     &kp G          &kp H      HRMR(J,        K,         L,        SQT)
+			&kp A      &kp S         &kp D      &kp F    &kp G      &kp H      &kp J	     &kp K      &kp L    &kp L 
 			//├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
 			//│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
-			&kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
+			&rgb_ug RGB_EFF   &rgb_ug RGB_EFR      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
 			//╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
 			&kp Z      &kp X      &kp C      &kp V      &kp B          &kp SPACE  &lt 1 BSPC
 			//                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
 			>;
-			sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
+			// sensor-bindings = <&rgb_encoder>;
 		};
 		
-
+		
 		right_layer {
 			bindings = <
 			//╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
@@ -66,7 +74,7 @@
 			&trans     &kp ESC        &trans     &trans
 			//                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
 			>;
-		    sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 		
 		left_layer {
@@ -84,7 +92,7 @@
 			&trans     &trans         &trans     &trans
 			//                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
 			>;
-			sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 		
 		tri_layer {
@@ -102,7 +110,7 @@
 			&trans     &trans         &trans     &trans
 			//                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
 			>;
-			sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 	};
 };
