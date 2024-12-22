@@ -1,5 +1,5 @@
-// #include <dt-bindings/led/led.h>
-// #include <dt-bindings/pinctrl/nrf-pinctrl.h>
+// // #include <dt-bindings/led/led.h>
+// // #include <dt-bindings/pinctrl/nrf-pinctrl.h>
 
 &pinctrl {
 	spi0_default: spi0_default {
@@ -28,24 +28,23 @@
 	pinctrl-names = "default", "sleep";
 	cs-gpios = <&pro_micro 9 GPIO_ACTIVE_LOW>;
 	
-	glidepoint: glidepoint@0 {
-        compatible = "cirque,pinnacle";
-        reg = <0>;
-        spi-max-frequency = <1000000>;
-        status = "okay";
-        dr-gpios = <&pro_micro 2 (GPIO_ACTIVE_HIGH)>;
-
-        sensitivity = "4x";
-        sleep;
-        no-taps;
-    };
+	glidepoint: glidepoint@0 { 
+		status = "okay";
+		compatible = "cirque,pinnacle";
+		reg = <0>;
+		spi-max-frequency = <1000000>;
+		dr-gpios = <&pro_micro 2 (GPIO_ACTIVE_HIGH)>;
+		sensitivity = "4x";
+		sleep;
+		no-taps;
+	};
 };
 
 / {
-    glidepoint_listener {
-        compatible = "zmk,input-listener";
-        device = <&glidepoint>;
-    };
+	glidepoint_listener {
+		compatible = "zmk,input-listener";
+		device = <&glidepoint>;
+	};
 };
 
 
@@ -56,7 +55,7 @@
 // // 			psels = <NRF_PSEL(SPIM_MOSI, 0, 6)>;
 // // 		};
 // // 	};
-	
+
 // // 	spi3_sleep: spi3_sleep {
 // // 		group1 {
 // // 			psels = <NRF_PSEL(SPIM_MOSI, 0, 6)>;
@@ -68,18 +67,18 @@
 // // &spi3 {
 // // 	compatible = "nordic,nrf-spim";
 // // 	status = "okay";
-	
+
 // // 	pinctrl-0 = <&spi3_default>;
 // // 	pinctrl-1 = <&spi3_sleep>;
 // // 	pinctrl-names = "default", "sleep";
-	
+
 // // 	led_strip: ws2812@0 {
 // // 		compatible = "worldsemi,ws2812-spi";
-		
+
 // // 		/* SPI */
 // // 		reg = <0>; /* ignored, but necessary for SPI bindings */
 // // 		spi-max-frequency = <4000000>;
-		
+
 // // 		/* WS2812 */
 // // 		chain-length = <18>; /* number of LEDs */
 // // 		spi-one-frame = <0x70>;

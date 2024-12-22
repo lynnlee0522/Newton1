@@ -3,4 +3,4 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    uses: sky-bro/zmk/.github/workflows/build-user-config.yml@k4i-sweep-kbd
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml

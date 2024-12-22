@@ -1,8 +1,7 @@
 config SPI
-    default y
+    default y 
 
 if SHIELD_NEWTON_LEFT
-
 # Name must be less than 16 characters long!
 config ZMK_KEYBOARD_NAME
     default "Newton1"
