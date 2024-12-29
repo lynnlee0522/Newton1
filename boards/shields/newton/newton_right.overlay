@@ -6,7 +6,6 @@
 
 #include "newton.dtsi"
 
-// todo: how to work
 &default_transform {
 	col-offset = <5>;
 };
@@ -19,4 +18,8 @@
 	, <&pro_micro 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 	, <&pro_micro 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 	;
+};
+
+&right_encoder {
+    status = "okay";
 };
