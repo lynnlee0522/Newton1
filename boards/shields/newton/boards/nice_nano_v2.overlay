@@ -13,26 +13,27 @@
 			low-power-enable;
 		};
 	};
-	
-	
-	// i2c0_default: i2c0_default {
-	// 	group1 {
-	// 		psels = <NRF_PSEL(TWIM_SDA, 0, 17)>,
-	// 		<NRF_PSEL(TWIM_SCL, 0, 20)>;
-	// 	};
-	// };
-	
-	// i2c0_sleep: i2c0_sleep {
-	// 	group1 {
-	// 		psels = <NRF_PSEL(TWIM_SDA, 0, 17)>,
-	// 		<NRF_PSEL(TWIM_SCL, 0, 20)>;
-	// 		low-power-enable;
-	// 	};
-	// };
-	
-	
 };
 
+&pro_micro_spi {
+	status = "okay";
+	compatible = "nordic,nrf-spim";
+	pinctrl-0 = <&spi0_default>;
+	pinctrl-1 = <&spi0_sleep>;
+	pinctrl-names = "default", "sleep";
+	cs-gpios = <&gpio1 6 GPIO_ACTIVE_HIGH>;
+	
+	glidepoint: glidepoint@0 {
+		status = "okay";
+		compatible = "cirque,pinnacle";
+		reg = <0>;
+		spi-max-frequency = <1000000>;
+		dr-gpios = <&gpio0 17 (GPIO_ACTIVE_HIGH)>;
+		sensitivity = "4x";
+		sleep;
+		no-taps;
+	};
+};
 
 &spi3 {
 	compatible = "nordic,nrf-spim";
@@ -57,36 +58,8 @@
 	};
 };
 
-// &i2c0 {
-// 	status = "okay";
-// 	compatible = "nordic,nrf-twim";
-// 	pinctrl-0 = <&i2c0_default>;
-// 	pinctrl-1 = <&i2c0_sleep>;
-// 	pinctrl-names = "default", "sleep";
-// 	clock-frequency = <100000>;
-	
-// 	oled: ssd1306@3c {
-//         compatible = "solomon,ssd1306fb";
-//         reg = <0x3c>;
-//         width = <128>;
-//         height = <32>;
-//         segment-offset = <0>;
-//         page-offset = <0>;
-//         display-offset = <0>;
-//         multiplex-ratio = <31>;
-//         segment-remap;
-//         com-invdir;
-//         com-sequential;
-//         inversion-on;
-//         prechargep = <0x22>;
-//     };
-// };
-
-
-
 / {
 	chosen {
-		// zephyr,display = &oled;
 		zmk,underglow = &led_strip;
 	};
 };
